@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zeb's 1st Birthday 🐨</title>
+
+  <!-- Open Graph / Facebook Messenger link preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Zeb's 1st Birthday 🐨">
+  <meta property="og:description" content="Join the celebration! Saturday, 8th Aug 2026, 1:00–7:00 PM at Unanderra Community Centre. Kindly RSVP by August 6.">
+  <meta property="og:image" content="https://beige-clerissa-16.tiiny.site/og_thumbnail.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://beige-clerissa-16.tiiny.site">
+
+  <!-- Twitter Card (some Messenger/link-unfurl paths also check this) -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Zeb's 1st Birthday 🐨">
+  <meta name="twitter:description" content="Join the celebration! Saturday, 8th Aug 2026, 1:00–7:00 PM at Unanderra Community Centre.">
+  <meta name="twitter:image" content="https://beige-clerissa-16.tiiny.site/og_thumbnail.jpg">
+
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800;900&amp;family=Nunito:wght@400;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      background: #c8e6c9;
+      background-image:
+        radial-gradient(circle at 15% 20%, #b2dfdb 0%, transparent 45%),
+        radial-gradient(circle at 85% 80%, #a5d6a7 0%, transparent 45%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Nunito', sans-serif;
+      padding: 24px;
+      overflow: hidden;
+    }
+
+    /* Confetti */
+    .confetti {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .dot {
+      position: absolute;
+      border-radius: 50%;
+      animation: fall linear infinite;
+      opacity: 0.65;
+    }
+    @keyframes fall {
+      0%   { transform: translateY(-20px) rotate(0deg); opacity: 0; }
+      10%  { opacity: 0.65; }
+      90%  { opacity: 0.65; }
+      100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* ── Card scene ── */
+    .card-scene {
+      position: relative;
+      z-index: 1;
+      width: 456px;
+      height: 520px;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 16px 56px rgba(40,80,40,0.22), 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    /* ── Pages ── */
+    .page {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.55s cubic-bezier(.77,0,.18,1);
+    }
+
+    /* Cover starts at 0, inside starts pushed right */
+    #coverPage  { transform: translateX(0); }
+    #insidePage { transform: translateX(100%); }
+
+    /* Opened state */
+    .card-scene.opened #coverPage  { transform: translateX(-100%); }
+    .card-scene.opened #insidePage { transform: translateX(0); }
+
+    /* ══════════════════════════════
+       COVER PAGE
+    ══════════════════════════════ */
+    #coverPage {
+      background: #2d5a3d;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Photo area — fills most of the cover */
+    .cover-photo-area {
+      position: relative;
+      flex: 1;
+      overflow: hidden;
+    }
+    
+    #coverImg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Cover footer strip */
+    .cover-footer {
+      background: linear-gradient(135deg, #2d5a3d, #3a8a4a);
+      padding: 16px 24px 18px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .cover-name {
+      font-family: 'Baloo 2', cursive;
+      font-weight: 900;
+      font-size: 38px;
+      color: #fff;
+      line-height: 1;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      letter-spacing: 2px;
+    }
+    .cover-badge {
+      display: inline-block;
+      background: #FF7F5C;
+      color: #fff;
+      font-family: 'Baloo 2', cursive;
+      font-weight: 800;
+      font-size: 12px;
+      padding: 2px 12px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 4px;
+      box-shadow: 0 2px 8px rgba(255,127,92,0.4);
+    }
+
+    /* Open button */
+    .open-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255,255,255,0.25);
+      border: 1.5px solid rgba(255,255,255,0.6);
+      color: #fff;
+      font-family: 'Baloo 2', cursive;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 8px 22px;
+      border-radius: 20px;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      backdrop-filter: blur(6px);
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .open-btn:hover { 
+      background: rgba(255,255,255,0.35);
+      transform: translate(-50%, -55%);
+    }
+
+    /* ══════════════════════════════
+       INSIDE PAGE
+    ══════════════════════════════ */
+    #insidePage {
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    /* Inside header strip */
+    .inside-header {
+      background: linear-gradient(135deg, #3a8a4a 0%, #5cb85c 60%, #7ecf6e 100%);
+      padding: 16px 24px 12px;
+      text-align: center;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .back-btn {
+      position: absolute;
+      top: 14px;
+      left: 12px;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: #fff;
+      font-family: 'Baloo 2', cursive;
+      font-weight: 700;
+      font-size: 12px;
+      padding: 3px 10px;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .back-btn:hover { background: rgba(255,255,255,0.35); }
+
+    /* Koala + name row inside header */
+    .inside-koala-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .inside-koala-row h2 {
+      font-family: 'Baloo 2', cursive;
+      font-weight: 900;
+      font-size: 26px;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      letter-spacing: 1px;
+      line-height: 1;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-5px); }
+    }
+    .koala-svg { animation: bounce 2.5s ease-in-out infinite; }
+
+    /* Mini floating koalas scattered across page two */
+    .mini-koalas {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 5;
+    }
+    .mini-koala {
+      position: absolute;
+      font-size: 20px;
+      opacity: 0.55;
+      line-height: 1;
+      filter: brightness(0.5) drop-shadow(0 2px 3px rgba(0,0,0,0.25));
+      animation: koalaFloat 3.5s ease-in-out infinite;
+    }
+    @keyframes koalaFloat {
+      0%, 100% { transform: translateY(0) rotate(-6deg); }
+      50%      { transform: translateY(-12px) rotate(6deg); }
+    }
+
+    /* Leaves */
+    .leaf-row {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+    .leaf {
+      display: inline-block;
+      font-size: 13px;
+      animation: sway 3s ease-in-out infinite;
+    }
+    .leaf:nth-child(2) { animation-delay: 0.4s; }
+    .leaf:nth-child(3) { animation-delay: 0.8s; }
+    @keyframes sway {
+      0%, 100% { transform: rotate(-8deg); }
+      50%       { transform: rotate(8deg); }
+    }
+
+    /* Wave */
+    .wave { display: block; width: 100%; background: #3a8a4a; line-height: 0; flex-shrink: 0; }
+    .wave svg { display: block; }
+
+    /* Inside body */
+    .inside-body {
+      flex: 1;
+      padding: 14px 20px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      overflow: hidden;
+    }
+
+    .invite-line {
+      font-family: 'Baloo 2', cursive;
+      font-weight: 600;
+      font-size: 11px;
+      color: #5cb85c;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    /* Detail rows */
+    .details { display: flex; flex-direction: column; gap: 8px; margin-bottom: 0; }
+    .detail-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: #f5fbf5;
+      border-radius: 12px;
+      padding: 8px 12px;
+    }
+    .detail-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+    .detail-text strong {
+      display: block;
+      font-size: 9px;
+      font-weight: 700;
+      color: #5cb85c;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1px;
+    }
+    .detail-text span {
+      font-size: 12px;
+      font-weight: 600;
+      color: #2d4a2d;
+      line-height: 1.4;
+    }
+
+    /* Divider */
+    .divider {
+      border: none;
+      border-top: 2px dashed #c8e6c9;
+      margin: 10px 0;
+    }
+
+    /* RSVP */
+    .rsvp-section {
+      background: linear-gradient(135deg, #fff8e1, #fff3cd);
+      border-radius: 16px;
+      padding: 12px 16px 14px;
+      border: 2px solid #FFE066;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .rsvp-title {
+      font-family: 'Baloo 2', cursive;
+      font-weight: 800;
+      font-size: 15px;
+      color: #c8860a;
+      margin-bottom: 10px;
+    }
+    .rsvp-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #FF7F5C 0%, #ff6040 100%);
+      color: #fff;
+      font-family: 'Baloo 2', cursive;
+      font-weight: 800;
+      font-size: 15px;
+      padding: 10px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      box-shadow: 0 5px 18px rgba(255,96,64,0.4);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .rsvp-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,96,64,0.5); }
+    .rsvp-btn:active { transform: translateY(0); }
+
+    /* Inside footer */
+    .inside-footer {
+      background: #3a8a4a;
+      padding: 10px;
+      text-align: center;
+      flex-shrink: 0;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="confetti" id="confetti">
+  <div class="dot" style="width: 6px; height: 6px; background: rgb(128, 216, 255); left: 42.478%; top: -13.2206%; animation-duration: 13.5252s; animation-delay: 3.56537s;"></div>
+  <div class="dot" style="width: 8px; height: 8px; background: rgb(128, 216, 255); left: 31.8421%; top: -4.69852%; animation-duration: 7.95259s; animation-delay: 5.04048s;"></div>
+  <div class="dot" style="width: 6px; height: 6px; background: rgb(206, 147, 216); left: 99.8574%; top: -4.95526%; animation-duration: 13.4876s; animation-delay: 2.97414s;"></div>
+  <div class="dot" style="width: 8px; height: 8px; background: rgb(128, 216, 255); left: 10.9016%; top: -0.0553592%; animation-duration: 7.4878s; animation-delay: 4.10231s;"></div>
+  <div class="dot" style="width: 8px; height: 8px; background: rgb(255, 158, 186); left: 98.6135%; top: -8.20123%; animation-duration: 9.33027s; animation-delay: 5.07269s;"></div>
+  <div class="dot" style="width: 6px; height: 6px; background: rgb(128, 216, 255); left: 1.08499%; top: -11.7182%; animation-duration: 6.62649s; animation-delay: 3.93418s;"></div>
+  <div class="dot" style="width: 6px; height: 6px; background: rgb(128, 216, 255); left: 65.2577%; top: -13.1673%; animation-duration: 9.12084s; animation-delay: 3.33322s;"></div>
+  <div class="dot" style="width: 10px; height: 10px; background: rgb(128, 216, 255); left: 75.5336%; top: -6.47161%; animation-duration: 9.11482s; animation-delay: 5.2255s;"></div>
+  <div class="dot" style="width: 7px; height: 7px; background: rgb(92, 184, 92); left: 14.6763%; top: -17.6765%; animation-duration: 8.07945s; animation-delay: 4.88374s;"></div>
+  <div class="dot" style="width: 7px; height: 7px; background: rgb(206, 147, 216); left: 43.9503%; top: -16.0409%; animation-duration: 7.33095s; animation-delay: 1.37097s;"></div>
+  <div class="dot" style="width: 6px; height: 6px; background: rgb(206, 147, 216); left: 49.5116%; top: -19.4098%; animation-duration: 13.3062s; animation-delay: 3.2355s;"></div>
+  <div class="dot" style="width: 12px; height: 12px; background: rgb(206, 147, 216); left: 8.12249%; top: -4.45567%; animation-duration: 8.71772s; animation-delay: 4.29251s;"></div>
+  <div class="dot" style="width: 10px; height: 10px; background: rgb(128, 216, 255); left: 45.4626%; top: -11.58%; animation-duration: 12.4031s; animation-delay: 4.59265s;"></div>
+  <div class="dot" style="width: 6px; height: 6px; background: rgb(255, 127, 92); left: 19.0377%; top: -15.862%; animation-duration: 13.1396s; animation-delay: 1.18571s;"></div>
+  <div class="dot" style="width: 7px; height: 7px; background: rgb(206, 147, 216); left: 37.6052%; top: -15.4905%; animation-duration: 13.3662s; animation-delay: 5.16914s;"></div>
+  <div class="dot" style="width: 6px; height: 6px; background: rgb(255, 224, 102); left: 24.1856%; top: -13.5015%; animation-duration: 8.44997s; animation-delay: 2.50469s;"></div>
+  <div class="dot" style="width: 10px; height: 10px; background: rgb(126, 207, 110); left: 63.0332%; top: -3.69982%; animation-duration: 8.65674s; animation-delay: 2.83354s;"></div>
+  <div class="dot" style="width: 12px; height: 12px; background: rgb(92, 184, 92); left: 74.3599%; top: -3.03312%; animation-duration: 13.6281s; animation-delay: 1.12283s;"></div>
+  <div class="dot" style="width: 6px; height: 6px; background: rgb(255, 158, 186); left: 49.0331%; top: -0.272126%; animation-duration: 10.9069s; animation-delay: 1.40475s;"></div>
+  <div class="dot" style="width: 10px; height: 10px; background: rgb(128, 216, 255); left: 60.8782%; top: -19.865%; animation-duration: 6.03424s; animation-delay: 3.22532s;"></div>
+  <div class="dot" style="width: 12px; height: 12px; background: rgb(128, 216, 255); left: 94.2265%; top: -9.21001%; animation-duration: 12.0548s; animation-delay: 3.29147s;"></div>
+  <div class="dot" style="width: 12px; height: 12px; background: rgb(255, 127, 92); left: 4.87476%; top: -2.03137%; animation-duration: 12.5885s; animation-delay: 2.68024s;"></div>
+  <div class="dot" style="width: 12px; height: 12px; background: rgb(92, 184, 92); left: 61.9745%; top: -0.929773%; animation-duration: 8.58035s; animation-delay: 2.879s;"></div>
+  <div class="dot" style="width: 8px; height: 8px; background: rgb(92, 184, 92); left: 30.8891%; top: -2.88547%; animation-duration: 9.39002s; animation-delay: 1.85746s;"></div>
+  <div class="dot" style="width: 10px; height: 10px; background: rgb(128, 216, 255); left: 65.0601%; top: -1.61146%; animation-duration: 9.67608s; animation-delay: 4.11098s;"></div>
+  <div class="dot" style="width: 7px; height: 7px; background: rgb(206, 147, 216); left: 36.5105%; top: -4.28225%; animation-duration: 7.74924s; animation-delay: 2.31555s;"></div>
+  <div class="dot" style="width: 10px; height: 10px; background: rgb(206, 147, 216); left: 4.55319%; top: -4.32846%; animation-duration: 8.86162s; animation-delay: 1.60038s;"></div>
+  <div class="dot" style="width: 10px; height: 10px; background: rgb(255, 158, 186); left: 67.528%; top: -7.5597%; animation-duration: 6.14525s; animation-delay: 0.122062s;"></div>
+</div>
+
+<div class="card-scene" id="cardScene">
+
+  <!-- ══ COVER PAGE ══ -->
+  <div class="page" id="coverPage">
+    <div class="cover-photo-area has-image" id="coverPhotoArea">
+      <!--
+        ══════════════════════════════════════════════════════════════
+        HOW TO ADD YOUR PHOTO FROM POSTIMAGES:
+        1. Go to https://postimages.org/ and upload your photo.
+        2. After uploading, copy the "Direct link" URL (it ends in
+           .jpg / .png / etc — NOT the postimages.org page link).
+        3. Paste that URL below, replacing the src="..." placeholder
+           on the <img id="coverImg"> tag.
+        ══════════════════════════════════════════════════════════════
+      -->
+      <img id="coverImg" src="https://i.postimg.cc/hGbtZb44/Zeb2.png" alt="Zeb's photo" onerror="this.style.display='none'; document.getElementById('coverImgFallback').style.display='flex';">
+      <div id="coverImgFallback" style="display:none; width:100%; height:100%; align-items:center; justify-content:center; flex-direction:column; gap:8px; background:linear-gradient(135deg,#3a8a4a,#5cb85c); color:#fff; font-family:'Baloo 2',cursive; text-align:center; padding:24px;">
+        <div style="font-size:48px;">🐨📷</div>
+        <div style="font-weight:700; font-size:14px;">Add Zeb's photo!</div>
+        <div style="font-weight:600; font-size:11px; opacity:0.85;">Paste your postimages.org<br>direct link into the coverImg src</div>
+      </div>
+    </div>
+    <div class="cover-footer">
+      <div class="cover-name">ZEB</div>
+      <div class="cover-badge">Is turning 1!</div>
+    </div>
+    <button class="open-btn" onclick="document.getElementById('cardScene').classList.add('opened')">Open Invitation</button>
+  </div>
+
+  <!-- ══ INSIDE PAGE ══ -->
+  <div class="page" id="insidePage">
+    <div class="mini-koalas">
+      <div class="mini-koala" style="top: 8%; left: 8%; animation-delay: 0s;">🐨</div>
+      <div class="mini-koala" style="top: 15%; left: 42%; animation-delay: 0.4s;">🐨</div>
+      <div class="mini-koala" style="top: 12%; right: 10%; animation-delay: 0.8s;">🐨</div>
+      <div class="mini-koala" style="top: 28%; left: 22%; animation-delay: 1.2s;">🐨</div>
+      <div class="mini-koala" style="top: 32%; right: 20%; animation-delay: 1.6s;">🐨</div>
+      <div class="mini-koala" style="top: 40%; left: 6%; animation-delay: 2.0s;">🐨</div>
+      <div class="mini-koala" style="top: 40%; right: 12%; animation-delay: 2.4s;">🐨</div>
+      <div class="mini-koala" style="top: 48%; left: 48%; animation-delay: 2.8s;">🐨</div>
+      <div class="mini-koala" style="bottom: 32%; left: 15%; animation-delay: 0.6s;">🐨</div>
+      <div class="mini-koala" style="bottom: 30%; right: 8%; animation-delay: 1.0s;">🐨</div>
+      <div class="mini-koala" style="bottom: 22%; left: 35%; animation-delay: 1.4s;">🐨</div>
+      <div class="mini-koala" style="bottom: 18%; right: 30%; animation-delay: 1.8s;">🐨</div>
+      <div class="mini-koala" style="bottom: 10%; left: 10%; animation-delay: 2.2s;">🐨</div>
+      <div class="mini-koala" style="bottom: 8%; right: 15%; animation-delay: 2.6s;">🐨</div>
+      <div class="mini-koala" style="bottom: 5%; left: 50%; animation-delay: 3.0s;">🐨</div>
+    </div>
+
+    <div class="inside-header">
+      <button class="back-btn" onclick="document.getElementById('cardScene').classList.remove('opened')">← Back</button>
+      <div class="inside-koala-row">
+        <svg class="koala-svg" width="36" height="36" viewBox="0 0 72 72">
+          <circle cx="20" cy="24" r="12" fill="#9e9e9e"/>
+          <circle cx="20" cy="24" r="7" fill="#ff8a80"/>
+          <circle cx="52" cy="24" r="12" fill="#9e9e9e"/>
+          <circle cx="52" cy="24" r="7" fill="#ff8a80"/>
+          <circle cx="36" cy="42" r="22" fill="#bdbdbd"/>
+          <ellipse cx="36" cy="34" rx="14" ry="11" fill="#f5f5f5"/>
+          <circle cx="28" cy="34" r="3" fill="#212121"/>
+          <circle cx="44" cy="34" r="3" fill="#212121"/>
+          <ellipse cx="36" cy="42" rx="4" ry="6" fill="#424242"/>
+        </svg>
+        <h2>Zeb's 1st Birthday</h2>
+      </div>
+    </div>
+
+    <div class="wave">
+      <svg viewBox="0 0 500 24" preserveAspectRatio="none" style="width:100%; height:24px;">
+        <path d="M0,0 C150,18 350,18 500,0 L500,24 L0,24 Z" fill="#fff"></path>
+      </svg>
+    </div>
+
+    <div class="inside-body">
+      <div class="leaf-row">
+        <span class="leaf">🌿</span><span class="leaf">🌱</span><span class="leaf">🌿</span>
+      </div>
+      
+      <div class="invite-line">Join the Celebration!</div>
+
+      <div class="details">
+        <div class="detail-row">
+          <div class="detail-icon">📅</div>
+          <div class="detail-text">
+            <strong>When</strong>
+            <span>Saturday, 8th Aug, 2026<br>1:00 PM - 7:00 PM</span>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon">📍</div>
+          <div class="detail-text">
+            <strong>Where</strong>
+            <span>Unanderra Community Centre<br>Cnr Factory Rd &amp; Princes Hwy, Unanderra NSW 2526</span>
+          </div>
+ 
+         
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="rsvp-section">
+        <div class="rsvp-title">Kindly RSVP by August 6</div>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdMaGWGr8bAw9Q169x2OgeIwb-eexNRFgI68KE31FbHC_6sDQ/viewform?usp=header" target="_blank" rel="noopener" class="rsvp-btn">Click to RSVP</a>
+      </div>
+    </div>
+
+    <div class="inside-footer"></div>
+  </div>
+
+</div>
+
+</body>
+</html>
