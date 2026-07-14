@@ -8,8 +8,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Zeb's 1st Birthday 🐨">
   <meta property="og:description" content="Join the celebration! Saturday, 8th Aug 2026, 1:00–7:00 PM at Unanderra Community Centre.">
-  <!-- Pointing to the local og_thumbnail.jpg file -->
-  <meta property="og:image" content="og_thumbnail.jpg">
+  <meta property="og:image" content="https://realynsapaen.github.io/ZebBday/og_thumbnail.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:url" content="https://realynsapaen.github.io/ZebBday">
@@ -17,8 +16,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Zeb's 1st Birthday 🐨">
   <meta name="twitter:description" content="Join the celebration! Saturday, 8th Aug 2026, 1:00–7:00 PM at Unanderra Community Centre.">
-  <!-- Pointing to the local og_thumbnail.jpg file -->
-  <meta name="twitter:image" content="og_thumbnail.jpg">
+  <meta name="twitter:image" content="https://realynsapaen.github.io/ZebBday/og_thumbnail.jpg">
 
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800;900&amp;family=Nunito:wght@400;600;700&amp;display=swap" rel="stylesheet">
   <style>
@@ -105,7 +103,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 15%; /* Shifts image down securely so full head shows */
+      object-position: center 15%; 
       display: block;
     }
 
@@ -139,7 +137,6 @@
       box-shadow: 0 4px 12px rgba(255,127,92,0.4);
     }
 
-    /* Open button nested inside photo area to keep footer perfectly clean */
     .open-btn {
       position: absolute;
       bottom: 20px;
@@ -174,7 +171,6 @@
       position: relative;
     }
 
-    /* Padding-top increased to 64px to push the title down, safely clearing the 1.5x back button */
     .inside-header {
       background: linear-gradient(135deg, #3a8a4a 0%, #5cb85c 60%, #7ecf6e 100%);
       padding: 64px 24px 14px;
@@ -183,7 +179,6 @@
       position: relative;
     }
 
-    /* Back button enlarged 1.5x & repositioned to prevent overflow */
     .back-btn {
       position: absolute;
       top: 18px;
@@ -211,7 +206,6 @@
       margin-top: 0px;
     }
     
-    /* Zeb's 1st Birthday heading size increased by 1.5x (from 26px to 39px) */
     .inside-koala-row h2 {
       font-family: 'Baloo 2', cursive;
       font-weight: 900;
@@ -256,7 +250,7 @@
     }
     .leaf {
       display: inline-block;
-      font-size: 18px; /* Slightly scaled up for presence */
+      font-size: 18px; 
       animation: sway 3s ease-in-out infinite;
     }
     .leaf:nth-child(2) { animation-delay: 0.4s; }
@@ -269,7 +263,6 @@
     .wave { display: block; width: 100%; background: #3a8a4a; line-height: 0; flex-shrink: 0; }
     .wave svg { display: block; }
 
-    /* Centered display with active vertical spacing */
     .inside-body {
       flex: 1;
       padding: 24px 28px;
@@ -280,7 +273,6 @@
       overflow: hidden;
     }
 
-    /* "Join the Celebration" size increased by 2x (from 11px to 22px) */
     .invite-line {
       font-family: 'Baloo 2', cursive;
       font-weight: 600;
@@ -299,7 +291,7 @@
       gap: 16px;
       background: #f5fbf5;
       border-radius: 16px;
-      padding: 14px 18px; /* Expanded padding to comfortably fill structural space */
+      padding: 14px 18px; 
       box-shadow: 0 4px 12px rgba(92,184,92,0.06);
     }
     .detail-icon { font-size: 24px; flex-shrink: 0; }
@@ -331,7 +323,6 @@
 <body>
 
 <div class="confetti" id="confetti">
-  <!-- Confetti divs remain unchanged -->
   <div class="dot" style="width: 6px; height: 6px; background: rgb(128, 216, 255); left: 42.478%; top: -13.2206%; animation-duration: 13.5252s; animation-delay: 3.56537s;"></div>
   <div class="dot" style="width: 8px; height: 8px; background: rgb(128, 216, 255); left: 31.8421%; top: -4.69852%; animation-duration: 7.95259s; animation-delay: 5.04048s;"></div>
   <div class="dot" style="width: 6px; height: 6px; background: rgb(206, 147, 216); left: 99.8574%; top: -4.95526%; animation-duration: 13.4876s; animation-delay: 2.97414s;"></div>
@@ -366,8 +357,7 @@
 
   <div class="page" id="coverPage">
     <div class="cover-photo-area has-image" id="coverPhotoArea">
-      <!-- Kept the cover page display matching your image file directly -->
-      <img id="coverImg" src="og_thumbnail.jpg" alt="Zeb's photo" onerror="this.style.display='none'; document.getElementById('coverImgFallback').style.display='flex';">
+      <img id="coverImg" src="https://realynsapaen.github.io/ZebBday/og_thumbnail.jpg" alt="Zeb's photo" onerror="this.style.display='none'; document.getElementById('coverImgFallback').style.display='flex';">
       <div id="coverImgFallback" style="display:none; width:100%; height:100%; align-items:center; justify-content:center; flex-direction:column; gap:8px; background:linear-gradient(135deg,#3a8a4a,#5cb85c); color:#fff; font-family:'Baloo 2',cursive; text-align:center; padding:24px;">
         <div style="font-size:48px;">🐨📷</div>
         <div style="font-weight:700; font-size:14px;">Add Zeb's photo!</div>
@@ -382,7 +372,6 @@
 
   <div class="page" id="insidePage">
     <div class="mini-koalas">
-      <!-- Mini koala divs remain unchanged -->
       <div class="mini-koala" style="top: 8%; left: 8%; animation-delay: 0s;">🐨</div>
       <div class="mini-koala" style="top: 15%; left: 42%; animation-delay: 0.4s;">🐨</div>
       <div class="mini-koala" style="top: 12%; right: 10%; animation-delay: 0.8s;">🐨</div>
