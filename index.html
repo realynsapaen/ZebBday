@@ -172,10 +172,10 @@
       position: relative;
     }
 
-    /* Padding-top increased to 64px to push the title down, safely clearing the 1.5x back button */
+    /* Padding-top increased to 110px (~1 inch down from original safe height) to move the entire title block down */
     .inside-header {
       background: linear-gradient(135deg, #3a8a4a 0%, #5cb85c 60%, #7ecf6e 100%);
-      padding: 64px 24px 14px;
+      padding: 110px 24px 16px;
       text-align: center;
       flex-shrink: 0;
       position: relative;
@@ -205,15 +205,15 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 10px;
       margin-top: 0px;
     }
     
-    /* Zeb's 1st Birthday heading size increased by 1.5x (from 26px to 39px) */
+    /* Zeb's 1st Birthday heading size increased by 1.1x (from 39px to ~43px) */
     .inside-koala-row h2 {
       font-family: 'Baloo 2', cursive;
       font-weight: 900;
-      font-size: 39px;
+      font-size: 43px;
       color: #fff;
       text-shadow: 0 2px 8px rgba(0,0,0,0.15);
       letter-spacing: 1px;
@@ -254,7 +254,7 @@
     }
     .leaf {
       display: inline-block;
-      font-size: 18px; /* Slightly scaled up for presence */
+      font-size: 18px; 
       animation: sway 3s ease-in-out infinite;
     }
     .leaf:nth-child(2) { animation-delay: 0.4s; }
@@ -267,18 +267,18 @@
     .wave { display: block; width: 100%; background: #3a8a4a; line-height: 0; flex-shrink: 0; }
     .wave svg { display: block; }
 
-    /* Centered display with active vertical spacing */
+    /* Centered display with balanced vertical spacing */
     .inside-body {
       flex: 1;
-      padding: 24px 28px;
+      padding: 20px 28px 24px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 20px;
+      gap: 18px;
       overflow: hidden;
     }
 
-    /* "Join the Celebration" size increased by 2x (from 11px to 22px) */
+    /* "Join the Celebration" text label */
     .invite-line {
       font-family: 'Baloo 2', cursive;
       font-weight: 600;
@@ -297,7 +297,7 @@
       gap: 16px;
       background: #f5fbf5;
       border-radius: 16px;
-      padding: 14px 18px; /* Expanded padding to comfortably fill structural space */
+      padding: 14px 18px;
       box-shadow: 0 4px 12px rgba(92,184,92,0.06);
     }
     .detail-icon { font-size: 24px; flex-shrink: 0; }
