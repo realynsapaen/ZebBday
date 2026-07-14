@@ -8,7 +8,8 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Zeb's 1st Birthday 🐨">
   <meta property="og:description" content="Join the celebration! Saturday, 8th Aug 2026, 1:00–7:00 PM at Unanderra Community Centre.">
-  <meta property="og:image" content="https://i.postimg.cc/VvX13NLn/Zeb5.jpg">
+  <!-- Pointing to the local og_thumbnail.jpg file -->
+  <meta property="og:image" content="og_thumbnail.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:url" content="https://realynsapaen.github.io/ZebBday">
@@ -16,7 +17,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Zeb's 1st Birthday 🐨">
   <meta name="twitter:description" content="Join the celebration! Saturday, 8th Aug 2026, 1:00–7:00 PM at Unanderra Community Centre.">
-  <meta name="twitter:image" content="https://i.postimg.cc/VvX13NLn/Zeb5.jpg">
+  <!-- Pointing to the local og_thumbnail.jpg file -->
+  <meta name="twitter:image" content="og_thumbnail.jpg">
 
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800;900&amp;family=Nunito:wght@400;600;700&amp;display=swap" rel="stylesheet">
   <style>
@@ -329,6 +331,7 @@
 <body>
 
 <div class="confetti" id="confetti">
+  <!-- Confetti divs remain unchanged -->
   <div class="dot" style="width: 6px; height: 6px; background: rgb(128, 216, 255); left: 42.478%; top: -13.2206%; animation-duration: 13.5252s; animation-delay: 3.56537s;"></div>
   <div class="dot" style="width: 8px; height: 8px; background: rgb(128, 216, 255); left: 31.8421%; top: -4.69852%; animation-duration: 7.95259s; animation-delay: 5.04048s;"></div>
   <div class="dot" style="width: 6px; height: 6px; background: rgb(206, 147, 216); left: 99.8574%; top: -4.95526%; animation-duration: 13.4876s; animation-delay: 2.97414s;"></div>
@@ -363,11 +366,11 @@
 
   <div class="page" id="coverPage">
     <div class="cover-photo-area has-image" id="coverPhotoArea">
-      <img id="coverImg" src="https://i.postimg.cc/VvX13NLn/Zeb5.jpg" alt="Zeb's photo" onerror="this.style.display='none'; document.getElementById('coverImgFallback').style.display='flex';">
+      <!-- Kept the cover page display matching your image file directly -->
+      <img id="coverImg" src="og_thumbnail.jpg" alt="Zeb's photo" onerror="this.style.display='none'; document.getElementById('coverImgFallback').style.display='flex';">
       <div id="coverImgFallback" style="display:none; width:100%; height:100%; align-items:center; justify-content:center; flex-direction:column; gap:8px; background:linear-gradient(135deg,#3a8a4a,#5cb85c); color:#fff; font-family:'Baloo 2',cursive; text-align:center; padding:24px;">
         <div style="font-size:48px;">🐨📷</div>
         <div style="font-weight:700; font-size:14px;">Add Zeb's photo!</div>
-        <div style="font-weight:600; font-size:11px; opacity:0.85;">Paste your postimages.org<br>direct link into the coverImg src</div>
       </div>
       <button class="open-btn" onclick="document.getElementById('cardScene').classList.add('opened')">Open Invitation</button>
     </div>
@@ -379,6 +382,7 @@
 
   <div class="page" id="insidePage">
     <div class="mini-koalas">
+      <!-- Mini koala divs remain unchanged -->
       <div class="mini-koala" style="top: 8%; left: 8%; animation-delay: 0s;">🐨</div>
       <div class="mini-koala" style="top: 15%; left: 42%; animation-delay: 0.4s;">🐨</div>
       <div class="mini-koala" style="top: 12%; right: 10%; animation-delay: 0.8s;">🐨</div>
