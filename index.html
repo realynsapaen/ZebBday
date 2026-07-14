@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zeb's 1st Birthday 🐨</title>
 
-  <!-- Open Graph / Facebook Messenger link preview -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Zeb's 1st Birthday 🐨">
   <meta property="og:description" content="Join the celebration! Saturday, 8th Aug 2026, 1:00–7:00 PM at Unanderra Community Centre. Kindly RSVP by August 6.">
@@ -14,7 +13,6 @@
   <meta property="og:image:height" content="630">
   <meta property="og:url" content="https://realynsapaen.github.io/ZebBday">
 
-  <!-- Twitter Card (some Messenger/link-unfurl paths also check this) -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Zeb's 1st Birthday 🐨">
   <meta name="twitter:description" content="Join the celebration! Saturday, 8th Aug 2026, 1:00–7:00 PM at Unanderra Community Centre.">
@@ -80,11 +78,9 @@
       transition: transform 0.55s cubic-bezier(.77,0,.18,1);
     }
 
-    /* Cover starts at 0, inside starts pushed right */
     #coverPage  { transform: translateX(0); }
     #insidePage { transform: translateX(100%); }
 
-    /* Opened state */
     .card-scene.opened #coverPage  { transform: translateX(-100%); }
     .card-scene.opened #insidePage { transform: translateX(0); }
 
@@ -97,7 +93,6 @@
       flex-direction: column;
     }
 
-    /* Photo area — fills most of the cover */
     .cover-photo-area {
       position: relative;
       flex: 1;
@@ -108,11 +103,11 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 0%; /* Shifted fully to the top to bring his head down into view */
+      /* Shifts the photo down to bring his full head/hair into full view */
+      object-position: center 15%; 
       display: block;
     }
 
-    /* Cover footer strip */
     .cover-footer {
       background: linear-gradient(135deg, #2d5a3d, #3a8a4a);
       padding: 12px 24px 18px;
@@ -122,9 +117,9 @@
     .cover-name {
       font-family: 'Baloo 2', cursive;
       font-weight: 900;
-      font-size: 152px; /* Resized 4x from 38px */
+      font-size: 152px; 
       color: #fff;
-      line-height: 0.85; /* Tightened so it doesn't take up too much vertical space */
+      line-height: 0.85; 
       text-shadow: 0 2px 8px rgba(0,0,0,0.2);
       letter-spacing: 2px;
     }
@@ -134,7 +129,7 @@
       color: #fff;
       font-family: 'Baloo 2', cursive;
       font-weight: 800;
-      font-size: 24px; /* Resized 2x from 12px */
+      font-size: 24px; 
       padding: 4px 20px;
       border-radius: 30px;
       letter-spacing: 1px;
@@ -143,7 +138,6 @@
       box-shadow: 0 2px 8px rgba(255,127,92,0.4);
     }
 
-    /* Open button */
     .open-btn {
       position: absolute;
       top: 50%;
@@ -178,7 +172,6 @@
       position: relative;
     }
 
-    /* Inside header strip */
     .inside-header {
       background: linear-gradient(135deg, #3a8a4a 0%, #5cb85c 60%, #7ecf6e 100%);
       padding: 16px 24px 12px;
@@ -204,7 +197,6 @@
     }
     .back-btn:hover { background: rgba(255,255,255,0.35); }
 
-    /* Koala + name row inside header */
     .inside-koala-row {
       display: flex;
       align-items: center;
@@ -228,7 +220,6 @@
     }
     .koala-svg { animation: bounce 2.5s ease-in-out infinite; }
 
-    /* Mini floating koalas scattered across page two */
     .mini-koalas {
       position: absolute;
       inset: 0;
@@ -249,7 +240,6 @@
       50%      { transform: translateY(-12px) rotate(6deg); }
     }
 
-    /* Leaves */
     .leaf-row {
       display: flex;
       justify-content: center;
@@ -268,11 +258,9 @@
       50%       { transform: rotate(8deg); }
     }
 
-    /* Wave */
     .wave { display: block; width: 100%; background: #3a8a4a; line-height: 0; flex-shrink: 0; }
     .wave svg { display: block; }
 
-    /* Inside body */
     .inside-body {
       flex: 1;
       padding: 14px 20px 12px;
@@ -293,7 +281,6 @@
       margin-bottom: 10px;
     }
 
-    /* Detail rows */
     .details { display: flex; flex-direction: column; gap: 8px; margin-bottom: 0; }
     .detail-row {
       display: flex;
@@ -320,14 +307,12 @@
       line-height: 1.4;
     }
 
-    /* Divider */
     .divider {
       border: none;
       border-top: 2px dashed #c8e6c9;
       margin: 10px 0;
     }
 
-    /* RSVP */
     .rsvp-section {
       background: linear-gradient(135deg, #fff8e1, #fff3cd);
       border-radius: 16px;
@@ -360,7 +345,6 @@
     .rsvp-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,96,64,0.5); }
     .rsvp-btn:active { transform: translateY(0); }
 
-    /* Inside footer */
     .inside-footer {
       background: #3a8a4a;
       padding: 10px;
@@ -405,19 +389,8 @@
 
 <div class="card-scene" id="cardScene">
 
-  <!-- ══ COVER PAGE ══ -->
   <div class="page" id="coverPage">
     <div class="cover-photo-area has-image" id="coverPhotoArea">
-      <!--
-        ══════════════════════════════════════════════════════════════
-        HOW TO ADD YOUR PHOTO FROM POSTIMAGES:
-        1. Go to https://postimages.org/ and upload your photo.
-        2. After uploading, copy the "Direct link" URL (it ends in
-           .jpg / .png / etc — NOT the postimages.org page link).
-        3. Paste that URL below, replacing the src="..." placeholder
-           on the <img id="coverImg"> tag.
-        ══════════════════════════════════════════════════════════════
-      -->
       <img id="coverImg" src="https://i.postimg.cc/GhHDDJNc/Zeb3.jpg" alt="Zeb's photo" onerror="this.style.display='none'; document.getElementById('coverImgFallback').style.display='flex';">
       <div id="coverImgFallback" style="display:none; width:100%; height:100%; align-items:center; justify-content:center; flex-direction:column; gap:8px; background:linear-gradient(135deg,#3a8a4a,#5cb85c); color:#fff; font-family:'Baloo 2',cursive; text-align:center; padding:24px;">
         <div style="font-size:48px;">🐨📷</div>
@@ -432,7 +405,6 @@
     <button class="open-btn" onclick="document.getElementById('cardScene').classList.add('opened')">Open Invitation</button>
   </div>
 
-  <!-- ══ INSIDE PAGE ══ -->
   <div class="page" id="insidePage">
     <div class="mini-koalas">
       <div class="mini-koala" style="top: 8%; left: 8%; animation-delay: 0s;">🐨</div>
@@ -497,8 +469,6 @@
             <strong>Where</strong>
             <span>Unanderra Community Centre<br>Cnr Factory Rd &amp; Princes Hwy, Unanderra NSW 2526</span>
           </div>
- 
-         
         </div>
       </div>
 
