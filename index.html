@@ -180,10 +180,11 @@
       position: relative;
     }
 
+    /* Back button enlarged 1.5x & repositioned to prevent overflow */
     .back-btn {
       position: absolute;
-      top: 14px;
-      left: 12px;
+      top: 18px;
+      left: 18px;
       background: rgba(255,255,255,0.2);
       border: none;
       color: #fff;
@@ -194,6 +195,8 @@
       border-radius: 14px;
       cursor: pointer;
       transition: background 0.2s;
+      transform: scale(1.5);
+      transform-origin: top left;
     }
     .back-btn:hover { background: rgba(255,255,255,0.35); }
 
@@ -204,10 +207,12 @@
       gap: 8px;
       margin-top: 10px;
     }
+    
+    /* Zeb's 1st Birthday heading size increased by 1.5x (from 26px to 39px) */
     .inside-koala-row h2 {
       font-family: 'Baloo 2', cursive;
       font-weight: 900;
-      font-size: 26px;
+      font-size: 39px;
       color: #fff;
       text-shadow: 0 2px 8px rgba(0,0,0,0.15);
       letter-spacing: 1px;
@@ -270,10 +275,11 @@
       overflow: hidden;
     }
 
+    /* "Join the Celebration" size increased by 2x (from 11px to 22px) */
     .invite-line {
       font-family: 'Baloo 2', cursive;
       font-weight: 600;
-      font-size: 11px;
+      font-size: 22px;
       color: #5cb85c;
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -313,37 +319,22 @@
       margin: 10px 0;
     }
 
+    /* RSVP section adjusted with lower margin to maintain styling without the button */
     .rsvp-section {
       background: linear-gradient(135deg, #fff8e1, #fff3cd);
       border-radius: 16px;
       padding: 12px 16px 14px;
       border: 2px solid #FFE066;
       text-align: center;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
     .rsvp-title {
       font-family: 'Baloo 2', cursive;
       font-weight: 800;
       font-size: 15px;
       color: #c8860a;
-      margin-bottom: 10px;
+      margin-bottom: 0;
     }
-    .rsvp-btn {
-      display: inline-block;
-      background: linear-gradient(135deg, #FF7F5C 0%, #ff6040 100%);
-      color: #fff;
-      font-family: 'Baloo 2', cursive;
-      font-weight: 800;
-      font-size: 15px;
-      padding: 10px 32px;
-      border-radius: 50px;
-      text-decoration: none;
-      letter-spacing: 0.5px;
-      box-shadow: 0 5px 18px rgba(255,96,64,0.4);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-    .rsvp-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,96,64,0.5); }
-    .rsvp-btn:active { transform: translateY(0); }
 
     .inside-footer {
       background: #3a8a4a;
@@ -476,7 +467,6 @@
 
       <div class="rsvp-section">
         <div class="rsvp-title">Kindly RSVP by August 6</div>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdMaGWGr8bAw9Q169x2OgeIwb-eexNRFgI68KE31FbHC_6sDQ/viewform?usp=header" target="_blank" rel="noopener" class="rsvp-btn">Click to RSVP</a>
       </div>
     </div>
 
