@@ -108,23 +108,23 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 25%; /* Shifts the image down to keep Zeb's head from being cut off */
+      object-position: center 0%; /* Shifted fully to the top to bring his head down into view */
       display: block;
     }
 
     /* Cover footer strip */
     .cover-footer {
       background: linear-gradient(135deg, #2d5a3d, #3a8a4a);
-      padding: 16px 24px 18px;
+      padding: 12px 24px 18px;
       text-align: center;
       flex-shrink: 0;
     }
     .cover-name {
       font-family: 'Baloo 2', cursive;
       font-weight: 900;
-      font-size: 57px; /* Scaled up by 1.5x from 38px */
+      font-size: 152px; /* Resized 4x from 38px */
       color: #fff;
-      line-height: 1;
+      line-height: 0.85; /* Tightened so it doesn't take up too much vertical space */
       text-shadow: 0 2px 8px rgba(0,0,0,0.2);
       letter-spacing: 2px;
     }
@@ -134,12 +134,12 @@
       color: #fff;
       font-family: 'Baloo 2', cursive;
       font-weight: 800;
-      font-size: 24px; /* Scaled up by 2x from 12px */
-      padding: 4px 20px; /* Scaled padding to balance larger text */
+      font-size: 24px; /* Resized 2x from 12px */
+      padding: 4px 20px;
       border-radius: 30px;
       letter-spacing: 1px;
       text-transform: uppercase;
-      margin-top: 8px; /* Increased margin to space it away from the larger name */
+      margin-top: 8px;
       box-shadow: 0 2px 8px rgba(255,127,92,0.4);
     }
 
